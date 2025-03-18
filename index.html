@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"/> <!-- link a bootstrap-->
+        <script
+			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+			integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+			integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+			crossorigin="anonymous"></script>
+            
+            <link rel="stylesheet" href="./styles.css">
+            <link href="https://fonts.google.com/">
+            <link href=" https://cdnjs.com/libraries/font-awesome"> <!-- Fontawesome link -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Mi Photofeed con Boostrap</title>
+</head>
+<body>
+<!--barra de navegacion -->
+<nav class="navbar navbar-light bg-light ">
+    <div class="container-fluid">
+        <div class="d-flex w-100 justify-content-between">
+            <div> <!-- icono de instagram-->
+                <i class="fa-brands fa-instagram fa-xl"></i>
+                <h5 class="d-inline-block fs-5">Instagram</h5>
+            </div>
+            <div class="d-flex align-right justify-content-end">
+                <!-- Button modal -->
+                <button type="button" class="btn btn-success me-2" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Create a new post
+                </button>
+                <!-- Button dropdown -->
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-gear"></i> <!-- icono del dropdown -->
+                    </button> <!-- menu al desplegar el dropdown -->
+                    <ul class="dropdown-menu dropdown-menu-end" >
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Accesibility</a></li>
+                        <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
+                        <li>
+                            <hr class="dropdown-divider"> <!-- linea divisoria -->
+                        </li>
+                        <li><a class="dropdown-item text-danger" href="#">Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+ <!-- boton modal "Create a new post" por dentro -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog"> <!-- cuadro de dialogo -->
+        <div class="modal-content">
+            <div class="modal-header"><!-- encabezado -->
+                <h5 class="modal-title"> Create a new post</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">  <!-- cuerpo -->
+                <h6>Caption:</h6>
+                <textarea class="form-control" placeholder="Add the caption of your post here"></textarea>
+                <div class="row p-2">
+                    <button class="col-1 border rounded p-1 m-1 btn-light">
+                        <i class="fa-solid fa-camera"></i> <!-- icono de la camara-->
+                    </button>
+                    <button class="col-1 border rounded p-1 m-1 btn-light">
+                        <i class="fa-solid fa-location-dot"></i> <!-- icono de la localizacion  -->
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer"> <!-- pie -->
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Publish</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- botones selector de fotos -->
+<div class="container-fluid p-2">
+    <ul class="nav nav-pill justify-content-center" id="myTab" role="tablist">
+        <li class ="nav-item" role="presentation"> <!-- Boton para visualizar la grilla de 9 fotos -->
+            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                role="tab" aria-controls="home" aria-selected="true">
+                <i class="fa-solid fa-table-cells"></i></a>
+        </li>
+        <li class="nav-item" role="presentation"> <!-- Boton para visualizar las imagenes en una columna centrada-->
+            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                role="tab" aria-controls="profile" aria-selected="false">
+                <i class="fa-solid fa-square"></i></a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent"> <!-- aqui viene la segunda parte de los botones selectores  -->
+    <!-- fotos en grilla -->
+    <div class="tab-pane fade show active overflow-hidden" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="row">
+            <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://ciudadviva.mx/wp-content/uploads/2018/06/golden-retriever-mexico.png" class="img-fluid w-100" alt=""></div>
+            <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://st.depositphotos.com/1814366/2148/i/950/depositphotos_21489183-stock-photo-group-of-smiling-teenagers-staying.jpg" class="img-fluid w-100" alt=""></div>
+            <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://www.wonderbox.es/blog/wp-content/uploads/sites/6/2022/06/5-grandes-lugares-para-descubrir-en-Espana-foto-de-Costa-Brava-Catalonia-espana.jpeg" class="img-fluid w-100" alt=""></div>
+        </div>
+        <div class="row">
+            <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://th.bing.com/th/id/OIP.hYqAsT7OlabwspnvsIWgwAHaLG?rs=1&pid=ImgDetMain.jpg" class="img-fluid w-100" alt=""></div>
+            <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://th.bing.com/th/id/R.be54aa5e93cfbd52185d6e863e1cb445?rik=yMDVHyJnTd5wGg&pid=ImgRaw&r=0" class="img-fluid w-100" alt=""></div>
+            <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://cdn2.mediotiempo.com/uploads/media/2022/11/24/cristiano-ronaldo-gol-mundiales-jamas.jpg" class="img-fluid w-100" alt=""></div>
+        </div>
+        <div class="row">
+            <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://th.bing.com/th/id/OIP.C8QpZD0t73weFP0x9Z7iKQHaE8?rs=1&pid=ImgDetMain" class="img-fluid w-100" alt=""></div>
+            <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://th.bing.com/th/id/R.630f8aacf53f560af2c4108fa3b58fa0?rik=7RObOlkabxr20A&pid=ImgRaw&r=0" class="img-fluid w-100" alt=""></div>
+            <div class="col-4 p-1"><img style="height: 30vw; object-fit: cover;" src="https://img.freepik.com/foto-gratis/ninos-que-sientan-escritorio-escuela_23-2147658973.jpg" class="img-fluid w-100" alt=""></div>
+        </div>
+    </div>
+
+     <!-- 1 foto en 1 columna centrada -->
+     <div class="tab-pane fade overflow-hidden" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="row my-4">
+            <div class="col-6 mx-auto border rounded p-0">
+                <div class="d-flex p-2">
+                    <div class="w-100 fs-4">El mejor amigo del hombre...</div>
+                    <small class="align-bottom">01/09</small>
+                </div>
+                <img style="object-fit: cover;" src="https://ciudadviva.mx/wp-content/uploads/2018/06/golden-retriever-mexico.png" class="img-fluid w-150 col-12" alt=""/>
+                <div class="p-2">
+                    <strong>1167 Likes</strong>
+                    <p>Estudios cientificos demuestran que tener un perro en casa alarga la vida del dueño. Es asi 
+                        de grande la conexion entre los humanos y nuestros peluditos. </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-4"> <!-- segunda foto -->
+            <div class="col-6 mx-auto border rounded p-0">
+                <div class="d-flex p-2">
+                    <div class="w-100 fs-4">No es cuestion de suerte.</div>
+                    <small>06/09</small>
+                </div>
+                <img style="object-fit: cover;" src="https://cdn2.mediotiempo.com/uploads/media/2022/11/24/cristiano-ronaldo-gol-mundiales-jamas.jpg" class="img-fluid w-150 col-12" alt=""/>
+                <div class="p-2">
+                    <strong>675578 Likes</strong>
+                    <p>Cristiano Ronaldo: el exito marcado por la pasion y la disciplina.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-4"> <!-- tercera foto -->
+            <div class="col-6 mx-auto border rounded p-0">
+                <div class="d-flex p-2">
+                    <div class="w-100 fs-4">Un cafe mirando el mar</div>
+                    <small>03/09</small>
+                </div>
+                <img style="object-fit: cover;" src="https://www.wonderbox.es/blog/wp-content/uploads/sites/6/2022/06/5-grandes-lugares-para-descubrir-en-Espana-foto-de-Costa-Brava-Catalonia-espana.jpeg" class="img-fluid w-150 col-12" alt=""/>
+                <div class="p-2">
+                    <strong>300 Likes</strong>
+                    <p>Vivir frente al mar es un lujo que no todos podemos disfrutar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    
+</body>
+</html>
